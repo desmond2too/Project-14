@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Maggie(Valentines Gift)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        html {
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #5d001e;
+            position: relative;
+            padding: 15px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            margin: 0 auto;
+        }
+        
+        .heart-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 20, 147, 0.3);
+            font-size: 16px;
+            animation: float 8s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 8vw, 3.8rem);
+            margin-bottom: 15px;
+            color: #9d174d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite alternate;
+            line-height: 1.2;
+            padding: 0 10px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            100% {
+                transform: scale(1.03);
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .message {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            margin-bottom: 25px;
+            line-height: 1.5;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px 15px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .bouquet {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 180px;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .flower {
+            width: 55px;
+            height: 90px;
+            position: relative;
+            margin: 0 5px;
+            animation: sway 4s infinite alternate ease-in-out;
+        }
+        
+        .flower:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .flower:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        .flower:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        
+        .flower:nth-child(5) {
+            animation-delay: 2s;
+        }
+        
+        @keyframes sway {
+            0% {
+                transform: translateY(0) rotate(-2deg);
+            }
+            100% {
+                transform: translateY(-12px) rotate(2deg);
+            }
+        }
+        
+        .stem {
+            width: 6px;
+            height: 80px;
+            background: linear-gradient(to right, #2e7d32, #4caf50);
+            margin: 0 auto;
+            border-radius: 3px;
+        }
+        
+        .petals {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 55px;
+            height: 55px;
+        }
+        
+        .petal {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-radius: 50% 50% 50% 0;
+            transform-origin: bottom center;
+        }
+        
+        .petal-1 { 
+            background: #ff4081; 
+            transform: rotate(0deg) translateY(-12px); 
+        }
+        .petal-2 { 
+            background: #f50057; 
+            transform: rotate(45deg) translateY(-12px); 
+        }
+        .petal-3 { 
+            background: #ff4081; 
+            transform: rotate(90deg) translateY(-12px); 
+        }
+        .petal-4 { 
+            background: #f50057; 
+            transform: rotate(135deg) translateY(-12px); 
+        }
+        .petal-5 { 
+            background: #ff4081; 
+            transform: rotate(180deg) translateY(-12px); 
+        }
+        .petal-6 { 
+            background: #f50057; 
+            transform: rotate(225deg) translateY(-12px); 
+        }
+        .petal-7 { 
+            background: #ff4081; 
+            transform: rotate(270deg) translateY(-12px); 
+        }
+        .petal-8 { 
+            background: #f50057; 
+            transform: rotate(315deg) translateY(-12px); 
+        }
+        
+        .center {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            top: 19px;
+            left: 19px;
+            z-index: 2;
+        }
+        
+        .question-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px 15px;
+            border-radius: 20px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            margin: 20px 0;
+            animation: slideUp 2s ease-out;
+        }
+        
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .question {
+            font-size: clamp(1.5rem, 6vw, 1.8rem);
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #9d174d;
+            line-height: 1.3;
+            padding: 0 5px;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            padding: 18px 30px;
+            font-size: clamp(1.3rem, 5vw, 1.5rem);
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            max-width: 280px;
+            touch-action: manipulation;
+        }
+        
+        .yes-btn {
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            color: white;
+            order: 1;
+        }
+        
+        .yes-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 8px rgba(46, 125, 50, 0.4);
+        }
+        
+        .no-btn {
+            background: linear-gradient(to right, #f44336, #c62828);
+            color: white;
+            order: 2;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .no-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 8px rgba(198, 40, 40, 0.4);
+        }
+        
+        .response {
+            display: none;
+            font-size: clamp(1.3rem, 5vw, 1.6rem);
+            margin-top: 20px;
+            padding: 20px 15px;
+            border-radius: 15px;
+            animation: popIn 0.5s ease-out;
+            line-height: 1.4;
+        }
+        
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .success {
+            background-color: rgba(76, 175, 80, 0.95);
+            color: white;
+        }
+        
+        .error {
+            background-color: rgba(244, 67, 54, 0.95);
+            color: white;
+        }
+        
+        .emoji {
+            font-size: clamp(1.8rem, 6vw, 2.2rem);
+            margin: 0 5px;
+        }
+        
+        footer {
+            margin-top: 35px;
+            font-size:  20px;
+            color: #5d001e;
+            opacity: 0.8;
+            padding: 0 10px;
+        }
+        
+        /* Mobile-specific adjustments */
+        @media (max-width: 350px) {
+            .flower {
+                width: 45px;
+                margin: 0 3px;
+            }
+            
+            .petals {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .petal {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .center {
+                width: 14px;
+                height: 14px;
+                top: 15px;
+                left: 15px;
+            }
+            
+            .stem {
+                height: 70px;
+            }
+            
+            .bouquet {
+                height: 150px;
+            }
+        }
+        
+        /* Landscape orientation */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                padding: 10px 0;
+            }
+            
+            h1 {
+                margin-bottom: 10px;
+                font-size: 2.5rem;
+            }
+            
+            .message {
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+            
+            .bouquet {
+                height: 120px;
+                margin: 15px 0;
+            }
+            
+            .flower {
+                width: 45px;
+                height: 70px;
+            }
+            
+            .stem {
+                height: 60px;
+            }
+            
+            .question-box {
+                padding: 20px 15px;
+                margin: 15px 0;
+            }
+            
+            .buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: auto;
+                min-width: 120px;
+                padding: 15px 25px;
+            }
+        }
+        
+        /* Prevent text selection on buttons for better UX */
+        .btn {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        /* Swipe prevention for mobile */
+        .question-box, .message {
+            touch-action: pan-y;
+        }
+        
+        /* Loading animation for better perceived performance */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-heart {
+            font-size: 4rem;
+            color: #9d174d;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading screen for mobile -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-heart">
+            <i class="fas fa-heart"></i>
+        </div>
+    </div>
+    
+    <div class="heart-background" id="heartBackground"></div>
+    
+    <div class="container">
+        <h1>My Dearest Valentine</h1>
+        
+        <div class="message">
+            <p>I think this past weeks, We have been talking and I have enjoyed every moment,the pictures you send the tik toks, I really enjoy all that,let me not forget your voice, music to my ears, so basically what I just said is I really really appriciate you   </p>
+            <p>   </p>
+            <p Today, I want to ask you something very special...</p>
+        </div>
+        
+        <div class="bouquet">
+            <!-- Flowers will be generated by JavaScript for better mobile performance -->
+        </div>
+        
+        <div class="question-box">
+            <div class="question">Will you be my Girlfriend (makoti) 🥺 ?</div>
+            
+            <div class="buttons">
+                <button class="btn yes-btn" id="yesBtn">
+                    <i class="fas fa-heart"></i> Yes! <i class="fas fa-heart"></i>
+                </button>
+                <button class="btn no-btn" id="noBtn">No (I'm boring )</button>
+            </div>
+            
+            <div class="response success" id="successResponse">
+                <i class="fas fa-heart emoji"></i> Thank you Shiveli, I'll send over the contract so you sign  <i class="fas fa-heart emoji"></i>
+            </div>
+            
+            <div class="response error" id="errorResponse">
+                <i class="fas fa-exclamation-triangle"></i>Big Red Flag<i class="fas fa-exclamation-triangle"></i>
+                <br>
+                <span style="font-size: 1.2rem;">The fact that you even considerd the No is crazyyyy 😂</span>
+            </div>
+        </div>
+        
+       <footer>
+    Made with <i class="fas fa-heart" style="color: #e91e63;"></i> from your one and only (I hope)
+    
+    <footer>
+    <small>Thought you deserved something for Valentines, so I made these <a href="flowers.html">Click here</a>
+    </footer>
+    </div>
+
+    <script>
+        // Wait for page to load completely
+        window.addEventListener('load', function() {
+            // Hide loading screen
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+            
+            // Initialize the page
+            initPage();
+        });
+        
+        function initPage() {
+            // Create floating hearts background (fewer for mobile performance)
+            const heartBackground = document.getElementById('heartBackground');
+            
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                
+                // Random position and animation delay
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 4 + Math.random() * 5;
+                
+                heart.style.left = `${left}%`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.fontSize = `${12 + Math.random() * 15}px`;
+                
+                heartBackground.appendChild(heart);
+            }
+            
+            // Generate flowers with JavaScript for better mobile control
+            const bouquet = document.querySelector('.bouquet');
+            const flowerCount = window.innerWidth < 350 ? 4 : 5;
+            
+            for (let i = 0; i < flowerCount; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                
+                flower.innerHTML = `
+                    <div class="petals">
+                        <div class="petal petal-1"></div>
+                        <div class="petal petal-2"></div>
+                        <div class="petal petal-3"></div>
+                        <div class="petal petal-4"></div>
+                        <div class="petal petal-5"></div>
+                        <div class="petal petal-6"></div>
+                        <div class="petal petal-7"></div>
+                        <div class="petal petal-8"></div>
+                        <div class="center"></div>
+                    </div>
+                    <div class="stem"></div>
+                `;
+                
+                // Stagger animation
+                flower.style.animationDelay = `${i * 0.5}s`;
+                bouquet.appendChild(flower);
+                
+                // Make flowers interactive on mobile
+                flower.addEventListener('click', function() {
+                    createFlowerEffect(this);
+                });
+            }
+            
+            // Button functionality
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const successResponse = document.getElementById('successResponse');
+            const errorResponse = document.getElementById('errorResponse');
+            let noButtonAttempts = 0;
+            const maxAttempts = 3;
+            
+            // Yes button - touch/click
+            yesBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleYesClick();
+            });
+            
+            // No button - touch/click with mobile-optimized behavior
+            noBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                noButtonAttempts++;
+                handleNoClick(noButtonAttempts);
+            });
+            
+            // Also make the no button move on touch start for mobile
+            noBtn.addEventListener('touchstart', function(e) {
+                if (noButtonAttempts < maxAttempts) {
+                    // Slight move on touch
+                    moveNoButton();
+                }
+            });
+            
+            function handleYesClick() {
+                // Hide buttons and show success message
+                document.querySelector('.buttons').style.display = 'none';
+                successResponse.style.display = 'block';
+                
+                // Create celebration hearts
+                createCelebrationHearts();
+                
+                // Play a celebration vibration on mobile (if supported)
+                if (navigator.vibrate) {
+                    navigator.vibrate([100, 50, 100, 50, 200]);
+                }
+                
+                // Play celebration sound
+                playCelebrationSound();
+            }
+            
+            function handleNoClick(attempts) {
+                if (attempts >= maxAttempts) {
+                    // Show error message
+                    document.querySelector('.buttons').style.display = 'none';
+                    errorResponse.style.display = 'block';
+                    
+                    // Add laughing emojis
+                    addLaughingEmojis();
+                    
+                    // Vibrate for error
+                    if (navigator.vibrate) {
+                        navigator.vibrate([200, 100, 200, 100, 200]);
+                    }
+                } else {
+                    // Move the button
+                    moveNoButton();
+                    
+                    // Show attempt counter
+                    const originalText = noBtn.innerHTML;
+                    noBtn.innerHTML = `No (${attempts}/${maxAttempts})`;
+                    
+                    // Reset text after 1 second
+                    setTimeout(() => {
+                        noBtn.innerHTML = originalText;
+                    }, 1000);
+                    
+                    // Vibrate on move
+                    if (navigator.vibrate) {
+                        navigator.vibrate(100);
+                    }
+                }
+            }
+            
+            function moveNoButton() {
+                // Calculate safe area within the question box
+                const questionBox = document.querySelector('.question-box');
+                const boxRect = questionBox.getBoundingClientRect();
+                const btnRect = noBtn.getBoundingClientRect();
+                
+                // Calculate max positions (keeping button fully visible)
+                const maxX = boxRect.width - btnRect.width - 20;
+                const maxY = boxRect.height - btnRect.height - 80; // Account for question text
+                
+                // Generate random position within bounds
+                const randomX = Math.max(10, Math.random() * maxX);
+                const randomY = Math.max(60, Math.random() * maxY); // Start below question
+                
+                noBtn.style.position = 'absolute';
+                noBtn.style.left = `${randomX}px`;
+                noBtn.style.top = `${randomY}px`;
+            }
+            
+            function createFlowerEffect(flowerElement) {
+                // Create a floating heart from the clicked flower
+                const rect = flowerElement.getBoundingClientRect();
+                const heart = document.createElement('div');
+                heart.innerHTML = '<i class="fas fa-heart" style="color: #ff4081;"></i>';
+                heart.style.position = 'fixed';
+                heart.style.left = `${rect.left + rect.width/2}px`;
+                heart.style.top = `${rect.top}px`;
+                heart.style.fontSize = '25px';
+                heart.style.zIndex = '5';
+                heart.style.pointerEvents = 'none';
+                heart.style.transition = 'all 1s ease-out';
+                
+                document.body.appendChild(heart);
+                
+                // Animate the heart
+                setTimeout(() => {
+                    heart.style.transform = 'translateY(-100px)';
+                    heart.style.opacity = '0';
+                }, 10);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 1100);
+                
+                // Vibrate slightly on flower tap
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
+                }
+            }
+            
+            function createCelebrationHearts() {
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.classList.add('heart');
+                        heart.innerHTML = '<i class="fas fa-heart" style="color: #e91e63;"></i>';
+                        
+                        // Random position
+                        const left = Math.random() * 100;
+                        heart.style.left = `${left}%`;
+                        heart.style.fontSize = `${20 + Math.random() * 25}px`;
+                        heart.style.zIndex = '5';
+                        
+                        // Add to body
+                        document.body.appendChild(heart);
+                        
+                        // Remove after animation completes
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 8000);
+                    }, i * 150);
+                }
+            }
+            
+            function addLaughingEmojis() {
+                for (let i = 0; i < 10; i++) {
+                    const emoji = document.createElement('div');
+                    emoji.innerHTML = '😂';
+                    emoji.style.position = 'fixed';
+                    emoji.style.fontSize = `${25 + Math.random() * 30}px`;
+                    emoji.style.left = `${Math.random() * 100}%`;
+                    emoji.style.top = `${Math.random() * 100}%`;
+                    emoji.style.zIndex = '100';
+                    emoji.style.pointerEvents = 'none';
+                    emoji.style.animation = `float ${3 + Math.random() * 4}s infinite linear`;
+                    
+                    document.body.appendChild(emoji);
+                }
+            }
+            
+            
+            
+            // Make the hearts in the background interactive
+            document.addEventListener('click', function(e) {
+                // Only create hearts if clicked on empty space (not on buttons or flowers)
+                if (!e.target.closest('.btn') && !e.target.closest('.flower') && !e.target.closest('.petals')) {
+                    createClickHeart(e.clientX, e.clientY);
+                }
+            });
+            
+            function createClickHeart(x, y) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '<i class="fas fa-heart" style="color: #ff4081;"></i>';
+                heart.style.position = 'fixed';
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+                heart.style.fontSize = '20px';
+                heart.style.zIndex = '5';
+                heart.style.pointerEvents = 'none';
+                heart.style.transition = 'all 1s ease-out';
+                heart.style.transform = 'translate(-50%, -50%)';
+                
+                document.body.appendChild(heart);
+                
+                // Animate the heart
+                setTimeout(() => {
+                    heart.style.transform = 'translate(-50%, -150%)';
+                    heart.style.opacity = '0';
+                }, 10);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 1100);
+            }
+            
+            // Handle orientation change for mobile
+            window.addEventListener('orientationchange', function() {
+                // Give time for orientation to complete
+                setTimeout(() => {
+                    // Reset no button position
+                    noBtn.style.position = '';
+                    noBtn.style.left = '';
+                    noBtn.style.top = '';
+                }, 300);
+            });
+        }
+    </script>
+</body>
+</html>
